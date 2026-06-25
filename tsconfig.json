@@ -1,0 +1,57 @@
+{
+  // TYPESCRIPT CONFIGURATION FILE - Compiler settings for type checking and building
+  // TypeScript is a programming language that adds type safety to JavaScript
+  // This file tells the TypeScript compiler how to process our code
+  
+  "compilerOptions": {
+    // BUILD CACHE - Where to store build information for faster compilation
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    
+    // TARGET - Which JavaScript version to compile to
+    "target": "ES2020",                    // Compile to ES2020 (modern JavaScript features)
+    
+    // CLASS FIELDS - How to handle class properties
+    "useDefineForClassFields": true,       // Use modern class field definitions
+    
+    // LIBRARIES - Which built-in type definitions to include
+    "lib": [
+      "ES2020",      // ES2020 JavaScript features (async/await, optional chaining, etc.)
+      "DOM",         // Browser APIs (document, window, etc.)
+      "DOM.Iterable" // Iterable DOM collections (NodeList, etc.)
+    ],
+    
+    // MODULE SYSTEM - How to handle imports and exports
+    "module": "ESNext",                   // Use the latest module system
+    "skipLibCheck": true,                 // Skip type checking of library files (faster compilation)
+    "moduleResolution": "bundler",        // Use bundler-style module resolution (for Vite)
+    "allowImportingTsExtensions": true,   // Allow importing .ts/.tsx files directly
+    "verbatimModuleSyntax": false,        // Transform import/export syntax
+    "moduleDetection": "force",           // Treat all files as modules
+    
+    // OUTPUT - What to generate
+    "noEmit": true,                       // Don't generate JavaScript files (Vite handles this)
+    
+    // JSX - React component syntax
+    "jsx": "react-jsx",                  // Use React 17+ JSX transform (no need to import React)
+    
+    // TYPE CHECKING - How strict to be with types (currently relaxed for development)
+    "strict": false,                      // Disable strict type checking
+    "noUnusedLocals": false,              // Allow unused local variables
+    "noUnusedParameters": false,          // Allow unused function parameters
+    "noFallthroughCasesInSwitch": false,  // Allow switch cases without break statements
+    "noUncheckedSideEffectImports": false, // Allow imports that might have side effects
+    "forceConsistentCasingInFileNames": false, // Allow inconsistent file name casing
+    
+    // PATH MAPPING - Shortcuts for imports
+    "baseUrl": "./",                     // Base directory for relative imports
+    "paths": {
+      "@/*": ["./src/*"]                 // Allow @/components instead of ./src/components
+    }
+  },
+  
+  // INCLUDE - Which files and folders to process
+  "include": [
+    "src",    // Include all files in the src folder
+    "api"     // Include all files in the api folder
+  ]
+}

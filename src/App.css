@@ -1,0 +1,596 @@
+/* ========================================
+   GLOBAL STYLES - Foundation of the Website
+   ======================================== */
+
+/* UNIVERSAL RESET - Clean slate for all elements */
+/* This removes default browser styling so we have consistent appearance across all browsers */
+* {
+  margin: 0;           /* Remove default margins (space outside elements) */
+  padding: 0;          /* Remove default padding (space inside elements) */
+  box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+
+/* BODY STYLING - Main container for all page content */
+/* This sets the foundation for how text and colors appear throughout the site */
+body {
+  /* FONT STACK - List of fonts to try in order of preference */
+  /* If 'Inter' isn't available, try the next font, and so on */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  
+  /* FONT SMOOTHING - Makes text look crisp on different operating systems */
+  -webkit-font-smoothing: antialiased;     /* Smooth fonts on Mac/iOS */
+  -moz-osx-font-smoothing: grayscale;      /* Smooth fonts on Firefox/Mac */
+  
+  line-height: 1.6;                       /* Space between lines (1.6 = 60% more than font size) */
+  color: var(--text-primary);              /* Text color using CSS variable (changes with theme) */
+  background-color: var(--bg-primary);     /* Background color using CSS variable */
+  
+  /* SMOOTH TRANSITIONS - Animate color changes when switching themes */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ========================================
+   CSS VARIABLES - Color and Design System
+   ======================================== */
+
+/* ROOT VARIABLES - Default (Light) Theme Colors */
+/* CSS Variables are like containers that store values we can reuse throughout the stylesheet */
+/* Think of them as color palettes that can be easily swapped for different themes */
+:root {
+  /* TEXT COLORS - Different shades for various text elements */
+  --text-primary: #1a1a1a;    /* Main text color (dark gray, almost black) */
+  --text-secondary: #6b7280;  /* Secondary text (medium gray) */
+  --text-muted: #9ca3af;      /* Muted text (light gray for less important info) */
+  
+  /* BACKGROUND COLORS - Different layers of the interface */
+  --bg-primary: #ffffff;      /* Main background (pure white) */
+  --bg-secondary: #f9fafb;    /* Secondary background (very light gray) */
+  --bg-tertiary: #f3f4f6;     /* Third level background (slightly darker gray) */
+  
+  /* BORDER COLORS - Lines and dividers */
+  --border-primary: #e5e7eb;  /* Main border color (light gray) */
+  --border-secondary: #d1d5db; /* Secondary border color (slightly darker) */
+  
+  /* ACCENT COLORS - Brand colors for buttons, links, highlights */
+  --accent-primary: #8b5cf6;  /* Main purple brand color */
+  --accent-secondary: #a78bfa; /* Lighter purple for hover states */
+  --accent-light: #ede9fe;    /* Very light purple for backgrounds */
+  
+  /* STATUS COLORS - For success, warning, and error messages */
+  --success: #10b981;         /* Green for success messages */
+  --warning: #f59e0b;         /* Orange for warning messages */
+  --error: #ef4444;           /* Red for error messages */
+  
+  /* SHADOW SYSTEM - Different levels of depth and elevation */
+  /* Shadows create the illusion that elements are floating above the page */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);  /* Subtle shadow for slight elevation */
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);  /* Medium shadow for cards */
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* Large shadow for modals */
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* Extra large shadow for dropdowns */
+}
+
+/* DARK THEME VARIABLES - Alternative color scheme for dark mode */
+/* This selector targets elements with data-theme="dark" attribute */
+/* When dark mode is active, these colors override the light theme colors */
+[data-theme="dark"] {
+  /* DARK THEME TEXT COLORS - Light colors on dark backgrounds */
+  --text-primary: #f9fafb;    /* Main text (very light gray, almost white) */
+  --text-secondary: #d1d5db;  /* Secondary text (light gray) */
+  --text-muted: #9ca3af;      /* Muted text (medium gray) */
+  
+  /* DARK THEME BACKGROUNDS - Dark colors for the interface */
+  --bg-primary: #111827;      /* Main background (very dark blue-gray) */
+  --bg-secondary: #1f2937;    /* Secondary background (dark blue-gray) */
+  --bg-tertiary: #374151;     /* Third level background (medium dark gray) */
+  
+  /* DARK THEME BORDERS - Subtle lines in dark mode */
+  --border-primary: #374151;  /* Main border (medium dark gray) */
+  --border-secondary: #4b5563; /* Secondary border (lighter gray) */
+  
+  /* DARK THEME ACCENT COLORS - Adjusted brand colors for dark backgrounds */
+  --accent-primary: #a78bfa;  /* Lighter purple (more visible on dark) */
+  --accent-secondary: #8b5cf6; /* Darker purple for contrast */
+  --accent-light: #312e81;    /* Dark purple for backgrounds */
+  
+  /* DARK THEME STATUS COLORS - Adjusted for better visibility */
+  --success: #34d399;         /* Brighter green for dark mode */
+  --warning: #fbbf24;         /* Brighter yellow for dark mode */
+  --error: #f87171;           /* Brighter red for dark mode */
+  
+  /* DARK THEME SHADOWS - Stronger shadows for depth on dark backgrounds */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);  /* Stronger subtle shadow */
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);  /* Stronger medium shadow */
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3); /* Stronger large shadow */
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3); /* Stronger extra large shadow */
+}
+
+/* ========================================
+   ACCESSIBILITY STYLES - Making the site usable for everyone
+   ======================================== */
+
+/* SCREEN READER ONLY - Content visible to screen readers but hidden visually */
+/* This class hides content from sighted users but keeps it available for screen readers */
+/* Used for descriptive text that helps blind users understand the interface */
+.sr-only {
+  position: absolute;    /* Remove from normal document flow */
+  width: 1px;           /* Make it tiny (but not 0, which some screen readers ignore) */
+  height: 1px;          /* Make it tiny */
+  padding: 0;           /* No padding */
+  margin: -1px;         /* Negative margin to hide it completely */
+  overflow: hidden;     /* Hide any overflow */
+  clip: rect(0, 0, 0, 0); /* Clip to nothing (old browser support) */
+  white-space: nowrap;  /* Don't wrap text */
+  border: 0;            /* No border */
+}
+
+/* FOCUS STYLES - Visual indicator when navigating with keyboard */
+/* When users press Tab to navigate, this shows which element is selected */
+/* Essential for users who can't use a mouse */
+*:focus {
+  outline: 2px solid var(--accent-primary); /* Purple outline around focused element */
+  outline-offset: 2px;                      /* Space between element and outline */
+}
+
+/* SKIP LINK - Accessibility feature for keyboard navigation */
+/* This link appears when users press Tab, allowing them to skip to main content */
+/* Especially helpful for screen reader users who don't want to hear the navigation menu every time */
+.skip-link {
+  position: absolute;                    /* Position it at the top of the page */
+  top: -40px;                           /* Hide it above the visible area */
+  left: 6px;                            /* Position from left edge */
+  background: var(--accent-primary);     /* Purple background to stand out */
+  color: white;                         /* White text for contrast */
+  padding: 8px 12px;                    /* Space inside the link */
+  text-decoration: none;                /* Remove underline */
+  z-index: 1000;                        /* Make sure it appears above everything else */
+  border-radius: 4px;                   /* Rounded corners */
+  font-weight: 500;                     /* Medium font weight */
+  transition: top 0.3s ease;            /* Smooth animation when appearing */
+}
+
+/* SKIP LINK FOCUS STATE - Show the link when it receives keyboard focus */
+.skip-link:focus {
+  top: 6px;  /* Move it into view when focused */
+}
+
+/* HIGH CONTRAST MODE SUPPORT - For users who need stronger color differences */
+/* This media query detects when users have enabled high contrast mode in their OS */
+/* Provides maximum contrast colors for better visibility */
+@media (prefers-contrast: high) {
+  /* HIGH CONTRAST LIGHT MODE - Pure black and white */
+  :root {
+    --text-primary: #000000;      /* Pure black text */
+    --text-secondary: #000000;    /* Pure black for all text */
+    --bg-primary: #ffffff;        /* Pure white background */
+    --bg-secondary: #f0f0f0;      /* Very light gray background */
+    --accent-primary: #0000ff;    /* Pure blue for links/buttons */
+    --accent-secondary: #000080;  /* Dark blue for hover states */
+  }
+  
+  /* HIGH CONTRAST DARK MODE - Pure white on black */
+  [data-theme="dark"] {
+    --text-primary: #ffffff;      /* Pure white text */
+    --text-secondary: #ffffff;    /* Pure white for all text */
+    --bg-primary: #000000;        /* Pure black background */
+    --bg-secondary: #1a1a1a;      /* Very dark gray background */
+    --accent-primary: #00ffff;    /* Bright cyan for visibility */
+    --accent-secondary: #0080ff;  /* Bright blue for hover states */
+  }
+}
+
+/* REDUCED MOTION SUPPORT - For users sensitive to animations */
+/* This media query detects when users have requested reduced motion in their OS */
+/* Removes or minimizes animations that might cause discomfort or vestibular disorders */
+@media (prefers-reduced-motion: reduce) {
+  /* TARGET ALL ELEMENTS AND PSEUDO-ELEMENTS */
+  *,
+  *::before,  /* Elements created with CSS (like decorative shapes) */
+  *::after {  /* Elements created with CSS (like tooltips) */
+    animation-duration: 0.01ms !important;      /* Make animations nearly instant */
+    animation-iteration-count: 1 !important;    /* Run animations only once */
+    transition-duration: 0.01ms !important;     /* Make transitions nearly instant */
+    scroll-behavior: auto !important;           /* Remove smooth scrolling */
+  }
+}
+
+/* TYPOGRAPHY - Text styling and hierarchy */
+/* Defines how all text elements look and behave across the website */
+
+/* HEADINGS - Main titles and section headers */
+/* All headings use the same font family and styling for consistency */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);  /* Use the heading font (Inter) */
+  font-weight: 700;                  /* Bold weight for emphasis */
+  line-height: 1.2;                 /* Tight line spacing for headings */
+  margin: 0 0 1rem 0;                /* Remove top margin, add bottom spacing */
+  color: var(--text-primary);        /* Use primary text color */
+}
+
+/* HEADING SIZES - Responsive sizing using clamp() */
+/* clamp(min, preferred, max) ensures text scales smoothly across devices */
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);      /* Main page title: 32px to 56px */
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);    /* Section headers: 24px to 40px */
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 2rem);     /* Subsection headers: 20px to 32px */
+}
+
+h4 {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem); /* Minor headers: 18px to 24px */
+}
+
+h5 {
+  font-size: clamp(1rem, 2vw, 1.25rem);     /* Small headers: 16px to 20px */
+}
+
+h6 {
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem); /* Tiny headers: 14px to 18px */
+}
+
+/* PARAGRAPHS - Body text styling */
+p {
+  font-family: var(--font-body);     /* Use body font (Inter) */
+  line-height: 1.6;                 /* Comfortable reading spacing */
+  margin: 0 0 1rem 0;                /* Space between paragraphs */
+  color: var(--text-secondary);      /* Slightly muted text color */
+}
+
+/* LINKS - Clickable text styling */
+a {
+  color: var(--accent-primary);      /* Purple color to indicate clickability */
+  text-decoration: none;             /* Remove underline by default */
+  transition: color 0.3s ease;       /* Smooth color change on hover */
+}
+
+/* LINK HOVER AND FOCUS STATES - Interactive feedback */
+a:hover,   /* When mouse hovers over link */
+a:focus {  /* When link is focused via keyboard */
+  color: var(--accent-secondary);    /* Darker purple for interaction */
+  text-decoration: underline;        /* Add underline for clarity */
+}
+
+/* BUTTONS - Interactive elements for user actions */
+/* Base button styling that all buttons inherit */
+.btn {
+  display: inline-flex;              /* Flexible layout for icon + text */
+  align-items: center;               /* Center content vertically */
+  justify-content: center;           /* Center content horizontally */
+  padding: 0.75rem 1.5rem;           /* Comfortable click area (12px 24px) */
+  border: none;                      /* Remove default browser border */
+  border-radius: 8px;                /* Rounded corners for modern look */
+  font-family: var(--font-body);     /* Use body font for consistency */
+  font-size: 1rem;                   /* Standard text size (16px) */
+  font-weight: 500;                  /* Medium weight for readability */
+  text-decoration: none;             /* Remove underline if used as link */
+  cursor: pointer;                   /* Show hand cursor on hover */
+  transition: all 0.3s ease;         /* Smooth animation for all changes */
+  min-height: 44px;                  /* Minimum touch target size (accessibility) */
+  gap: 0.5rem;                       /* Space between icon and text */
+}
+
+/* PRIMARY BUTTON - Main call-to-action button */
+/* Used for the most important actions like "Download Resume" or "Contact Me" */
+.btn-primary {
+  background: var(--accent-primary);     /* Purple background */
+  color: white;                          /* White text for contrast */
+}
+
+/* PRIMARY BUTTON HOVER STATE - Interactive feedback */
+.btn-primary:hover {
+  background: var(--accent-secondary);   /* Darker purple on hover */
+  transform: translateY(-2px);           /* Lift effect (moves up 2px) */
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3); /* Purple shadow for depth */
+}
+
+/* SECONDARY BUTTON - Alternative action button */
+/* Used for less important actions like "View Project" or "Learn More" */
+.btn-secondary {
+  background: transparent;               /* No background color */
+  color: var(--accent-primary);          /* Purple text */
+  border: 2px solid var(--accent-primary); /* Purple border */
+}
+
+/* SECONDARY BUTTON HOVER STATE - Fills with color on interaction */
+.btn-secondary:hover {
+  background: var(--accent-primary);     /* Fill with purple background */
+  color: white;                          /* Change text to white */
+  transform: translateY(-2px);           /* Same lift effect as primary */
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2); /* Subtle purple shadow */
+}
+
+/* CARD STYLES - Container for content sections */
+/* Used for project cards, experience items, education entries, etc. */
+.card {
+  background: var(--bg-secondary);       /* Secondary background color */
+  border-radius: 12px;                   /* Rounded corners for modern look */
+  padding: 1.5rem;                       /* Internal spacing (24px) */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: all 0.3s ease;             /* Smooth animation for all changes */
+  border: 1px solid var(--border-color); /* Subtle border */
+}
+
+/* CARD HOVER STATE - Interactive feedback when user hovers */
+.card:hover {
+  transform: translateY(-4px);           /* Lift effect (moves up 4px) */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Stronger shadow for emphasis */
+}
+
+/* CONTAINER STYLES - Main content wrapper */
+/* Centers content and provides consistent spacing across all pages */
+.container {
+  max-width: 1200px;                    /* Maximum width for readability */
+  margin: 0 auto;                       /* Center the container horizontally */
+  padding: 0 1rem;                      /* Side padding for mobile (16px) */
+}
+
+/* TABLET CONTAINER - Increased padding for medium screens */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;                    /* More side padding (32px) */
+  }
+}
+
+/* DESKTOP CONTAINER - Maximum padding for large screens */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 3rem;                    /* Maximum side padding (48px) */
+  }
+}
+
+/* RESPONSIVE TYPOGRAPHY - Smaller text sizes for mobile devices */
+/* Ensures text remains readable on smaller screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;                     /* Smaller main title (32px) */
+  }
+  
+  h2 {
+    font-size: 1.75rem;                 /* Smaller section headers (28px) */
+  }
+  
+  h3 {
+    font-size: 1.25rem;                  /* Smaller subsection headers (20px) */
+  }
+  
+  /* MOBILE BUTTON SIZING - Smaller buttons for touch screens */
+  .btn {
+    padding: 0.625rem 1.25rem;          /* Reduced padding (10px 20px) */
+    font-size: 0.875rem;                /* Smaller text (14px) */
+  }
+}
+
+/* LOADING AND ANIMATION STYLES - Visual feedback for user interactions */
+
+/* FADE-IN ANIMATION - Smooth entrance effect for content */
+/* Applied to elements when they first appear on screen */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;   /* Run fadeIn animation over 0.6 seconds */
+}
+
+/* FADE-IN KEYFRAMES - Defines the animation steps */
+@keyframes fadeIn {
+  from {
+    opacity: 0;                          /* Start invisible */
+    transform: translateY(20px);         /* Start 20px below final position */
+  }
+  to {
+    opacity: 1;                          /* End fully visible */
+    transform: translateY(0);            /* End at final position */
+  }
+}
+
+/* LOADING CONTAINER - Centers loading spinner */
+.loading {
+  display: flex;                         /* Use flexbox for centering */
+  justify-content: center;               /* Center horizontally */
+  align-items: center;                   /* Center vertically */
+  min-height: 200px;                     /* Minimum height for visibility */
+}
+
+/* LOADING SPINNER - Rotating circle to indicate loading */
+.spinner {
+  width: 40px;                           /* Spinner size */
+  height: 40px;                          /* Spinner size */
+  border: 4px solid var(--border-primary); /* Gray border */
+  border-top: 4px solid var(--accent-primary); /* Purple top for rotation effect */
+  border-radius: 50%;                    /* Make it circular */
+  animation: spin 1s linear infinite;    /* Continuous rotation */
+}
+
+/* SPIN KEYFRAMES - Defines the rotation animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }        /* Start at 0 degrees */
+  100% { transform: rotate(360deg); }    /* End at 360 degrees (full rotation) */
+}
+
+/* UTILITY CLASSES - Reusable styling helpers */
+/* These classes can be applied to any element for quick styling */
+
+/* TEXT ALIGNMENT UTILITIES - Control text positioning */
+.text-center {
+  text-align: center;                    /* Center text horizontally */
+}
+
+.text-left {
+  text-align: left;                      /* Align text to the left */
+}
+
+.text-right {
+  text-align: right;                     /* Align text to the right */
+}
+
+/* MARGIN TOP UTILITIES - Add space above elements */
+.mt-0 { margin-top: 0; }                 /* No top margin */
+.mt-1 { margin-top: 0.25rem; }           /* 4px top margin */
+.mt-2 { margin-top: 0.5rem; }            /* 8px top margin */
+.mt-3 { margin-top: 0.75rem; }           /* 12px top margin */
+.mt-4 { margin-top: 1rem; }              /* 16px top margin */
+.mt-5 { margin-top: 1.25rem; }           /* 20px top margin */
+.mt-6 { margin-top: 1.5rem; }            /* 24px top margin */
+.mt-8 { margin-top: 2rem; }              /* 32px top margin */
+
+/* MARGIN BOTTOM UTILITIES - Add space below elements */
+.mb-0 { margin-bottom: 0; }              /* No bottom margin */
+.mb-1 { margin-bottom: 0.25rem; }        /* 4px bottom margin */
+.mb-2 { margin-bottom: 0.5rem; }         /* 8px bottom margin */
+.mb-3 { margin-bottom: 0.75rem; }        /* 12px bottom margin */
+.mb-4 { margin-bottom: 1rem; }           /* 16px bottom margin */
+.mb-5 { margin-bottom: 1.25rem; }        /* 20px bottom margin */
+.mb-6 { margin-bottom: 1.5rem; }         /* 24px bottom margin */
+.mb-8 { margin-bottom: 2rem; }           /* 32px bottom margin */
+
+/* FLEXBOX UTILITIES - Modern layout system */
+.flex {
+  display: flex;                         /* Enable flexible layout */
+}
+
+.flex-col {
+  flex-direction: column;                /* Stack items vertically */
+}
+
+.items-center {
+  align-items: center;                   /* Center items vertically in flex */
+}
+
+.justify-center {
+  justify-content: center;               /* Center items horizontally in flex */
+}
+
+.justify-between {
+  justify-content: space-between;        /* Spread items with space between */
+}
+
+/* GAP UTILITIES - Space between flex items */
+.gap-2 {
+  gap: 0.5rem;                           /* 8px space between items */
+}
+
+.gap-4 {
+  gap: 1rem;                             /* 16px space between items */
+}
+
+.gap-6 {
+  gap: 1.5rem;                           /* 24px space between items */
+}
+
+.gap-8 {
+  gap: 2rem;                             /* 32px space between items */
+}
+
+/* POSITION UTILITIES - Element positioning */
+.relative {
+  position: relative;                    /* Position relative to normal flow */
+}
+
+.absolute {
+  position: absolute;                    /* Position relative to nearest positioned parent */
+}
+
+.fixed {
+  position: fixed;                       /* Position relative to viewport */
+}
+
+/* POSITION OFFSET UTILITIES - Where to place positioned elements */
+.top-0 {
+  top: 0;                                /* Align to top edge */
+}
+
+.left-0 {
+  left: 0;                               /* Align to left edge */
+}
+
+.right-0 {
+  right: 0;                              /* Align to right edge */
+}
+
+.bottom-0 {
+  bottom: 0;                             /* Align to bottom edge */
+}
+
+/* SIZE UTILITIES - Element dimensions */
+.w-full {
+  width: 100%;                           /* Full width of parent */
+}
+
+.h-full {
+  height: 100%;                          /* Full height of parent */
+}
+
+/* Z-INDEX UTILITIES - Layer stacking order */
+.z-10 {
+  z-index: 10;                           /* Layer 10 (above default) */
+}
+
+.z-20 {
+  z-index: 20;                           /* Layer 20 (above z-10) */
+}
+
+.z-50 {
+  z-index: 50;                           /* Layer 50 (high priority) */
+}
+
+/* DISPLAY UTILITIES - Control element visibility and display type */
+.hidden {
+  display: none;                         /* Hide element completely */
+}
+
+.block {
+  display: block;                        /* Display as block element */
+}
+
+.inline-block {
+  display: inline-block;                 /* Display as inline-block element */
+}
+
+/* PRINT STYLES - Optimized styling for printed pages */
+/* These styles apply when users print the webpage (like for a resume) */
+@media print {
+  /* RESET ALL ELEMENTS FOR PRINT - Remove colors and effects */
+  * {
+    background: transparent !important;   /* Remove all background colors */
+    color: black !important;              /* Make all text black for ink savings */
+    box-shadow: none !important;          /* Remove shadows (don't print well) */
+    text-shadow: none !important;         /* Remove text shadows */
+  }
+  
+  /* BODY PRINT STYLING - Optimize for paper */
+  body {
+    font-size: 12pt;                      /* Standard print font size */
+    line-height: 1.4;                     /* Comfortable reading on paper */
+  }
+  
+  /* HEADING PRINT STYLING - Keep headings together */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;               /* Don't break page right after heading */
+    font-weight: bold;                     /* Ensure headings are bold in print */
+  }
+  
+  /* PARAGRAPH PRINT STYLING - Avoid awkward breaks */
+  p {
+    orphans: 3;                           /* Minimum 3 lines at bottom of page */
+    widows: 3;                            /* Minimum 3 lines at top of page */
+  }
+  
+  /* LINK PRINT STYLING - Show underlines for links */
+  a,
+  a:visited {
+    text-decoration: underline;           /* Underline links in print */
+  }
+  
+  /* HIDE ELEMENTS FROM PRINT - Don't print interactive elements */
+  .no-print {
+    display: none !important;             /* Hide buttons, navigation, etc. */
+  }
+  
+  /* FORCE PAGE BREAK - Start new page */
+  .page-break {
+    page-break-before: always;            /* Force new page before this element */
+  }
+}

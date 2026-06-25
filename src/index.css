@@ -1,0 +1,31 @@
+/* TAILWIND CSS DIRECTIVES - Import Tailwind's pre-built styles */
+/* These directives inject Tailwind's CSS classes into our stylesheet */
+@tailwind base;       /* Basic HTML element styles (normalize, reset) */
+@tailwind components; /* Component classes (like .btn, .card) */
+@tailwind utilities;  /* Utility classes (like .text-center, .flex) */
+
+/* ROOT ELEMENT STYLING - Global font and rendering settings */
+/* These styles apply to the entire document */
+:root {
+  /* FONT STACK - Prioritized list of fonts to use */
+  /* Browser tries each font in order until it finds one that's installed */
+  font-family: 
+    -apple-system,           /* Apple's system font (macOS/iOS) */
+    BlinkMacSystemFont,      /* Older Apple system font */
+    "Segoe UI",             /* Windows system font */
+    "Noto Sans",            /* Google's universal font */
+    Helvetica,               /* Classic sans-serif font */
+    Arial,                   /* Widely available sans-serif */
+    sans-serif,              /* Generic sans-serif fallback */
+    "Apple Color Emoji",    /* Apple emoji support */
+    "Segoe UI Emoji";       /* Windows emoji support */
+  
+  line-height: 1.5;                    /* Comfortable reading spacing (1.5x font size) */
+  font-weight: 400;                    /* Normal font weight (not bold, not thin) */
+
+  /* FONT RENDERING OPTIMIZATIONS - Make text look crisp and clear */
+  font-synthesis: none;                /* Don't artificially create bold/italic */
+  text-rendering: optimizeLegibility;  /* Prioritize readability over speed */
+  -webkit-font-smoothing: antialiased; /* Smooth fonts on WebKit browsers (Safari, Chrome) */
+  -moz-osx-font-smoothing: grayscale;  /* Smooth fonts on Firefox (macOS) */
+}

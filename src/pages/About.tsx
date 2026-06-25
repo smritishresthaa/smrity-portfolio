@@ -392,7 +392,7 @@ const About: React.FC = () => {
           ['Typography', 95],
           ['Color theory', 88],
           ['Layout', 92],
-          ['Motion', 74],
+          
         ].map(([skill, value]) => (
           <div key={skill as string} className="mb-4 last:mb-0">
             <div className="flex justify-between text-sm mb-1">
@@ -447,12 +447,12 @@ const About: React.FC = () => {
         }`}
       >
         <span className="text-xs font-bold uppercase tracking-widest text-pink-600">Experience</span>
-        <div className="text-5xl font-bold text-pink-500 mt-4">7+</div>
+        <div className="text-5xl font-bold text-pink-500 mt-4">1+</div>
         <p className="text-neutral-heading dark:text-white font-semibold mt-2">
-          months hands-on design experience
+          year of hands-on UI/UX design experience
         </p>
         <div className="flex flex-wrap gap-1 mt-5">
-          {['20–21', '22', '23', '24', '25–26'].map((item) => (
+          {['Idealaya','Development Platform','Freelance'].map((item) => (
             <span
               key={item}
               className="text-[10px] text-center rounded-md bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-2 py-1 font-semibold"
@@ -474,9 +474,9 @@ const About: React.FC = () => {
         <span className="text-xs font-bold uppercase tracking-widest text-emerald-600">Research</span>
         <h3 className="text-xl font-bold text-neutral-heading dark:text-white mt-2 mb-5">User research methods</h3>
         {[
-          { title: 'Discovery',  items: ['Contextual inquiry', 'Diary studies', 'Stakeholder interviews'] },
-          { title: 'Validation', items: ['Usability testing', 'A/B testing', 'Heuristics'] },
-          { title: 'Analysis',   items: ['Affinity mapping', 'Thematic analysis', 'Journey mapping'] },
+          { title: 'Discovery',  items: ['User interviews', 'Competitor analysis', 'Requirement gathering'] },
+          { title: 'Validation', items: ['Usability testing', 'Prototype feedback', 'Heuristic review'] },
+          { title: 'Analysis',   items: ['User flows', 'Journey mapping', 'Pain point analysis'] },
         ].map(({ title, items }) => (
           <div
             key={title}

@@ -32,7 +32,7 @@ export interface Project {
   description: string;
   longDescription?: string;
   technologies: string[];
-  category: 'web' | 'mobile' | 'design' | 'other' | 'ai';
+  category: 'web' | 'mobile' | 'design' | 'other' | 'ai'|'operations';
   status: 'completed' | 'in-progress' | 'planned';
   featured: boolean;
   images: string[];

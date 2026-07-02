@@ -1,12 +1,5 @@
-// Import the TypeScript interface that defines the structure of portfolio data
 import { PortfolioData } from '../types';
 
-/**
- * PORTFOLIO DATA FILE
- * 
- * This file contains all the personal and professional information displayed throughout the portfolio website.
- * It serves as a centralized data source that feeds content to all pages (Home, About, Work, Resume, Contact).
- */
 export const portfolioData: PortfolioData = {
   personalInfo: {
     name: 'Smriti Shrestha',
@@ -60,7 +53,11 @@ export const portfolioData: PortfolioData = {
     { name: 'Express.js', category: 'development', level: 'advanced' },
     { name: 'MongoDB', category: 'development', level: 'advanced' },
     { name: 'REST APIs', category: 'development', level: 'advanced' },
-    { name: 'JWT Authentication', category: 'development', level: 'intermediate' },
+    {
+      name: 'JWT Authentication',
+      category: 'development',
+      level: 'intermediate'
+    },
     { name: 'HTML5', category: 'development', level: 'advanced' },
     { name: 'CSS3', category: 'development', level: 'advanced' },
     { name: 'Java', category: 'development', level: 'intermediate' },
@@ -91,11 +88,62 @@ export const portfolioData: PortfolioData = {
 
   projects: [
     {
+      id: 'affiliate-campaign-operations',
+      title: 'Affiliate Campaign Operations Command Centre',
+      description:
+        'A spreadsheet-based operations system for tracking affiliate campaigns, restrictions, payouts, reporting, and quality checks.',
+      longDescription:
+        'A simulated internal operations system for a performance-marketing agency. Built with synthetic data, the project centralises campaign information, payout details, restrictions, reporting checks, documentation, and operational follow-up in one structured Google Sheets workspace.',
+      technologies: [
+        'Google Sheets',
+        'Notion',
+        'Data Validation',
+        'Conditional Formatting',
+        'Reporting',
+        'SOP Documentation'
+      ],
+      category: 'operations',
+      status: 'completed',
+      featured: true,
+      showCaseStudyButton: true,
+      images: ['/images/projects/Affiliate Campaign Operations.png'],
+
+      // Clicking the card opens this Google Spreadsheet.
+      liveUrl:
+        'https://docs.google.com/spreadsheets/d/1y50glWAcKfD-ZmJYUwdX0NIpyVsIiB6v-SMDKKyILlk/edit?usp=sharing',
+
+      // Clicking the View case study button opens this Notion page.
+      caseStudyUrl:
+        'https://app.notion.com/p/Affiliate-Campaign-Operations-Command-Centre-3910c2f7b501801e9716cfa463e6e643?source=copy_link',
+
+      startDate: '2026-06',
+
+      highlights: [
+        'Centralised campaign information in one operational workspace',
+        'Structured payout, restriction, and campaign-status tracking',
+        'Added validation and quality-check workflows',
+        'Organised reporting and follow-up documentation',
+        'Used synthetic data without confidential company information',
+        'Documented the complete process and final solution in Notion'
+      ]
+    },
+
+    {
       id: 'sewahive',
       title: 'SewaHive Service Marketplace',
-      description: 'A trust-driven service marketplace for Nepal with client, provider, and admin panels.',
-      longDescription: 'SewaHive is a geo-enabled service marketplace designed for Nepal. It connects clients with verified service providers, supports normal and emergency bookings, realtime chat, live tracking, provider verification, reviews, payments, and admin-led platform management.',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Tailwind CSS', 'Vercel'],
+      description:
+        'A trust-driven service marketplace for Nepal with client, provider, and admin panels.',
+      longDescription:
+        'SewaHive is a geo-enabled service marketplace designed for Nepal. It connects clients with verified service providers, supports normal and emergency bookings, realtime chat, live tracking, provider verification, reviews, payments, and admin-led platform management.',
+      technologies: [
+        'React',
+        'Node.js',
+        'Express',
+        'MongoDB',
+        'Socket.IO',
+        'Tailwind CSS',
+        'Vercel'
+      ],
       category: 'web',
       status: 'completed',
       featured: true,
@@ -112,18 +160,28 @@ export const portfolioData: PortfolioData = {
         'Improved support, payment, and admin management workflows'
       ]
     },
+
     {
       id: 'recruitment-portal',
       title: 'Recruitment Portal Web App',
-      description: 'UI/UX design for a comprehensive recruitment platform during 3-month internship',
-      longDescription: 'Designed a complete recruitment portal web application featuring application forms, job listing pages, and admin dashboards. Collaborated with supervisors to translate business requirements into intuitive design mockups and built responsive layouts with comprehensive user flows.',
-      technologies: ['Figma', 'Wireframing', 'Prototyping', 'User Flows', 'Responsive Design'],
+      description:
+        'UI/UX design for a comprehensive recruitment platform during 3-month internship',
+      longDescription:
+        'Designed a complete recruitment portal web application featuring application forms, job listing pages, and admin dashboards. Collaborated with supervisors to translate business requirements into intuitive design mockups and built responsive layouts with comprehensive user flows.',
+      technologies: [
+        'Figma',
+        'Wireframing',
+        'Prototyping',
+        'User Flows',
+        'Responsive Design'
+      ],
       category: 'design',
       status: 'completed',
       featured: true,
       showCaseStudyButton: true,
       images: ['/images/projects/Recruitment.png'],
-      caseStudyUrl: 'https://www.figma.com/design/Gb35x13Z5W0nid9FcBBS4R/HERALD-RECRUITMENT-PORTAL?node-id=33-270&t=zH5t5whHL855a3Nk-1',
+      caseStudyUrl:
+        'https://www.figma.com/design/Gb35x13Z5W0nid9FcBBS4R/HERALD-RECRUITMENT-PORTAL?node-id=33-270&t=zH5t5whHL855a3Nk-1',
       startDate: '2024-01',
       endDate: '2024-04',
       highlights: [
@@ -135,18 +193,28 @@ export const portfolioData: PortfolioData = {
         'Contributed to internal design documentation and style guides'
       ]
     },
+
     {
       id: 'jewelaura-app',
       title: 'JewelAura Mobile App',
-      description: 'Multi-store jewelry shopping app with live pricing and cost calculator',
-      longDescription: 'Designed a comprehensive mobile application for jewelry shopping featuring multiple store integration, live pricing updates, in-app cost calculator, and purchase history tracking. Focused on creating an intuitive user experience with brand consistency and optimized user flows.',
-      technologies: ['Figma', 'Mobile Design', 'Wireframing', 'Prototyping', 'User Experience'],
+      description:
+        'Multi-store jewelry shopping app with live pricing and cost calculator',
+      longDescription:
+        'Designed a comprehensive mobile application for jewelry shopping featuring multiple store integration, live pricing updates, in-app cost calculator, and purchase history tracking. Focused on creating an intuitive user experience with brand consistency and optimized user flows.',
+      technologies: [
+        'Figma',
+        'Mobile Design',
+        'Wireframing',
+        'Prototyping',
+        'User Experience'
+      ],
       category: 'design',
       status: 'completed',
       featured: true,
       showCaseStudyButton: true,
       images: ['/images/projects/jewelaura.png'],
-      caseStudyUrl: 'https://www.figma.com/design/Nq6JRkyg49cwqM4VMGiHIA/%F0%9F%9A%80-Project-Starter-Template-Share---Copy-?node-id=8234-9260&t=pNq0YJJwmJpZZgwF-1',
+      caseStudyUrl:
+        'https://www.figma.com/design/Nq6JRkyg49cwqM4VMGiHIA/%F0%9F%9A%80-Project-Starter-Template-Share---Copy-?node-id=8234-9260&t=pNq0YJJwmJpZZgwF-1',
       startDate: '2024-05',
       endDate: '2024-07',
       highlights: [
@@ -159,13 +227,14 @@ export const portfolioData: PortfolioData = {
         'Optimized user flow for seamless shopping experience'
       ]
     },
+
     {
       id: 'weather-app',
       title: 'Weather Forecast App',
-      description: 'Real-time weather application with city search and dynamic weather updates.',
+      description:
+        'Real-time weather application with city search and dynamic weather updates.',
       longDescription:
-      'A weather forecasting web application that allows users to search for cities and view real-time weather information including temperature, humidity, weather conditions, and date/time. Built using JavaScript, PHP, MySQL, and Weather APIs with a responsive user interface.',
-
+        'A weather forecasting web application that allows users to search for cities and view real-time weather information including temperature, humidity, weather conditions, and date/time. Built using JavaScript, PHP, MySQL, and Weather APIs with a responsive user interface.',
       technologies: [
         'HTML',
         'CSS',
@@ -174,19 +243,12 @@ export const portfolioData: PortfolioData = {
         'MySQL',
         'Weather API'
       ],
-
       category: 'web',
-
       status: 'completed',
-
       featured: false,
-
       images: ['/images/projects/weatherapp.png'],
-
       liveUrl: 'https://smrity.infinityfree.io/',
-
       startDate: '2025-06',
-
       highlights: [
         'Implemented city-based weather search',
         'Displayed real-time weather information',
@@ -197,21 +259,21 @@ export const portfolioData: PortfolioData = {
         'Dynamic weather icon rendering'
       ]
     },
-    
+
     {
       id: 'jatra-menu-redesign',
       title: 'Jatra Restaurant Menu Makeover',
       description:
-      'Menu redesign project for a renowned restaurant in London focused on improving visual hierarchy and customer experience.',
+        'Menu redesign project for a renowned restaurant in London focused on improving visual hierarchy and customer experience.',
       longDescription:
-      'Redesigned the restaurant menu for Jatra Restaurant, a London-based restaurant. The project focused on improving readability, typography, spacing, content structure, and visual consistency while keeping the restaurant’s brand feel intact.',
+        'Redesigned the restaurant menu for Jatra Restaurant, a London-based restaurant. The project focused on improving readability, typography, spacing, content structure, and visual consistency while keeping the restaurant’s brand feel intact.',
       technologies: [
-      'Canva',
-      'Menu Design',
-      'Typography',
-      'Visual Hierarchy',
-      'Layout Design',
-      'Brand Consistency'
+        'Canva',
+        'Menu Design',
+        'Typography',
+        'Visual Hierarchy',
+        'Layout Design',
+        'Brand Consistency'
       ],
       category: 'design',
       status: 'completed',
@@ -221,49 +283,37 @@ export const portfolioData: PortfolioData = {
       showCaseStudyButton: false,
       startDate: '2025-08',
       highlights: [
-      'Redesigned restaurant menu layout',
-      'Improved readability and content flow',
-      'Refined typography and spacing',
-      'Enhanced visual hierarchy',
-      'Maintained restaurant brand consistency',
-      'Created a clean menu presentation suitable for customers'
+        'Redesigned restaurant menu layout',
+        'Improved readability and content flow',
+        'Refined typography and spacing',
+        'Enhanced visual hierarchy',
+        'Maintained restaurant brand consistency',
+        'Created a clean menu presentation suitable for customers'
       ]
     },
 
     {
       id: 'ai-delivery-agent',
-
       title: 'AI Delivery Agent Simulation',
-
       description:
-      'Autonomous delivery agent simulation built in Unity using A* Pathfinding and Ant Colony Optimisation.',
-
+        'Autonomous delivery agent simulation built in Unity using A* Pathfinding and Ant Colony Optimisation.',
       longDescription:
-      'A Complex Systems project developed in Unity and C#. The simulation features intelligent delivery agents that navigate a waypoint graph using A* pathfinding, collaborate with other agents, and optimise multi-location delivery routes using Ant Colony Optimisation (ACO).',
-
+        'A Complex Systems project developed in Unity and C#. The simulation features intelligent delivery agents that navigate a waypoint graph using A* pathfinding, collaborate with other agents, and optimise multi-location delivery routes using Ant Colony Optimisation (ACO).',
       technologies: [
-      'Unity',
-      'C#',
-      'A* Pathfinding',
-      'Ant Colony Optimisation',
-      'Artificial Intelligence',
-      'Autonomous Agents'
+        'Unity',
+        'C#',
+        'A* Pathfinding',
+        'Ant Colony Optimisation',
+        'Artificial Intelligence',
+        'Autonomous Agents'
       ],
-
       category: 'ai',
-
       status: 'completed',
-
       featured: true,
-
       images: ['/images/projects/ai-agent-simulation.png'],
-
       startDate: '2025-01',
-
       liveUrl:
-      'https://drive.google.com/drive/folders/13iuSuqELNjae4yhMEN-geXrzm3ZlX0oO?usp=sharing',
-
-
+        'https://drive.google.com/drive/folders/13iuSuqELNjae4yhMEN-geXrzm3ZlX0oO?usp=sharing',
       highlights: [
         'Developed autonomous delivery agents in Unity',
         'Implemented A* pathfinding algorithm',
@@ -273,14 +323,14 @@ export const portfolioData: PortfolioData = {
         'Measured route efficiency, time and distance performance',
         'Designed a 3D simulation environment'
       ]
-    },
+    }
   ],
 
   education: [
     {
       id: 'bachelors-cs',
       institution: 'Herald College Kathmandu',
-      degree: 'Bachelor\'s in Computer Science',
+      degree: "Bachelor's in Computer Science",
       field: 'Computer Science',
       startDate: '2024-01',
       endDate: '2026-06',
@@ -308,7 +358,8 @@ export const portfolioData: PortfolioData = {
       endDate: '2024-04',
       location: 'London, UK',
       type: 'internship',
-      description: 'Contributed to user interface design projects and collaborated with senior designers on client deliverables during a comprehensive 3-month internship program.',
+      description:
+        'Contributed to user interface design projects and collaborated with senior designers on client deliverables during a comprehensive 3-month internship program.',
       responsibilities: [
         'Designed user interfaces for web and mobile applications',
         'Created wireframes and prototypes using Figma',
@@ -323,7 +374,13 @@ export const portfolioData: PortfolioData = {
         'Contributed to 3 major client projects during internship',
         'Improved design workflow efficiency by 20%'
       ],
-      technologies: ['Figma', 'Adobe Creative Suite', 'Sketch', 'InVision', 'Miro']
+      technologies: [
+        'Figma',
+        'Adobe Creative Suite',
+        'Sketch',
+        'InVision',
+        'Miro'
+      ]
     }
   ],
 
@@ -331,7 +388,8 @@ export const portfolioData: PortfolioData = {
     {
       id: 'internship-completion',
       title: 'UI/UX Design Internship Completion',
-      description: 'Successfully completed 3-month internship designing recruitment portal web application',
+      description:
+        'Successfully completed 3-month internship designing recruitment portal web application',
       date: '2024-04',
       category: 'achievement',
       issuer: 'Internship Project'
@@ -339,7 +397,8 @@ export const portfolioData: PortfolioData = {
     {
       id: 'jewelaura-design',
       title: 'JewelAura Mobile App Design',
-      description: 'Designed comprehensive mobile app for jewelry shopping with advanced features',
+      description:
+        'Designed comprehensive mobile app for jewelry shopping with advanced features',
       date: '2024-07',
       category: 'project',
       issuer: 'Personal Project'

@@ -1,28 +1,96 @@
-/**
- * Work Page Component - Portfolio Projects Showcase
- */
-
-import React, { useState, useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, RotateCcw, Eye } from 'lucide-react';
+import { Eye, RotateCcw, Search } from 'lucide-react';
+
 import Section from '../components/ui/Section';
 import ProjectCard from '../components/ui/ProjectCard';
 import SEO from '../components/SEO';
 import { portfolioData } from '../data/portfolio';
 
+type ProjectFilter = 'all' | 'operations' | 'design' | 'web' | 'ai';
+
+const projectFilters: Array<{
+  key: ProjectFilter;
+  label: string;
+  dot: string;
+}> = [
+  {
+    key: 'all',
+    label: 'All projects',
+    dot: 'bg-primary-500'
+  },
+  {
+    key: 'operations',
+    label: 'Operations systems',
+    dot: 'bg-sky-500'
+  },
+  {
+    key: 'design',
+    label: 'UI/UX design',
+    dot: 'bg-pink-500'
+  },
+  {
+    key: 'web',
+    label: 'Web development',
+    dot: 'bg-orange-500'
+  },
+  {
+    key: 'ai',
+    label: 'AI & Simulation',
+    dot: 'bg-emerald-500'
+  }
+];
+
+const projectGroups = [
+  {
+    key: 'operations',
+    label: 'Operations & systems',
+    accentClass: 'text-sky-600 dark:text-sky-400',
+    borderClass: 'border-sky-200 dark:border-sky-800'
+  },
+  {
+    key: 'design',
+    label: 'UI/UX design',
+    accentClass: 'text-pink-600 dark:text-pink-400',
+    borderClass: 'border-pink-200 dark:border-pink-800'
+  },
+  {
+    key: 'web',
+    label: 'Web development',
+    accentClass: 'text-orange-600 dark:text-orange-400',
+    borderClass: 'border-orange-200 dark:border-orange-800'
+  },
+  {
+    key: 'ai',
+    label: 'AI & Simulation',
+    accentClass: 'text-emerald-600 dark:text-emerald-400',
+    borderClass: 'border-emerald-200 dark:border-emerald-800'
+  }
+] as const;
+
+const openExternalLink = (url?: string) => {
+  if (!url) return;
+
+  window.open(url, '_blank', 'noopener,noreferrer');
+};
+
 const Work: React.FC = () => {
   const { projects } = portfolioData;
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeProjectFilter, setActiveProjectFilter] = useState<string>('all');
+  const [activeProjectFilter, setActiveProjectFilter] =
+    useState<ProjectFilter>('all');
 
   const filteredProjects = useMemo(() => {
+    const normalisedSearch = searchTerm.trim().toLowerCase();
+
     return projects.filter((project) => {
       const matchesSearch =
-        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        project.technologies.some((tech) =>
-          tech.toLowerCase().includes(searchTerm.toLowerCase())
+        normalisedSearch.length === 0 ||
+        project.title.toLowerCase().includes(normalisedSearch) ||
+        project.description.toLowerCase().includes(normalisedSearch) ||
+        project.technologies.some((technology) =>
+          technology.toLowerCase().includes(normalisedSearch)
         );
 
       const matchesCategory =
@@ -39,78 +107,40 @@ const Work: React.FC = () => {
   };
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0
+    },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-      },
-    },
+        staggerChildren: 0.1
+      }
+    }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 22 },
+    hidden: {
+      opacity: 0,
+      y: 22
+    },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.55 },
-    },
+      transition: {
+        duration: 0.55
+      }
+    }
   };
-
-  const projectFilters = [
-    {
-      key: 'all',
-      label: 'All projects',
-      dot: 'bg-primary-500',
-    },
-    {
-      key: 'design',
-      label: 'UI/UX design',
-      dot: 'bg-pink-500',
-    },
-    {
-      key: 'web',
-      label: 'Web development',
-      dot: 'bg-orange-500',
-    },
-    {
-      key: 'ai',
-      label: 'AI & Simulation',
-      dot: 'bg-emerald-500',
-    },
-  ];
-
-  const projectGroups = [
-    {
-      key: 'design',
-      label: 'UI/UX design',
-      accentClass: 'text-pink-600 dark:text-pink-400',
-      borderClass: 'border-pink-200 dark:border-pink-800',
-    },
-    {
-      key: 'web',
-      label: 'Web development',
-      accentClass: 'text-orange-600 dark:text-orange-400',
-      borderClass: 'border-orange-200 dark:border-orange-800',
-    },
-    {
-      key: 'ai',
-      label: 'AI & Simulation',
-      accentClass: 'text-emerald-600 dark:text-emerald-400',
-      borderClass: 'border-emerald-200 dark:border-emerald-800',
-    },
-  ];
 
   return (
     <>
       <SEO
         title="My Work"
-        description="Explore Smriti Shrestha's portfolio of web development projects including full-stack applications, UI/UX designs, and innovative digital solutions using React, Node.js, and modern technologies."
-        keywords="Smriti Shrestha Projects, Web Development Portfolio, React Projects, Full Stack Applications, UI/UX Design Work, JavaScript Projects"
+        description="Explore Smriti Shrestha's portfolio of operations systems, UI/UX design projects, web applications and technical simulations."
+        keywords="Smriti Shrestha Projects, Operations Portfolio, Google Sheets Project, UI UX Portfolio, Web Development Portfolio, React Projects, Full Stack Applications"
       />
 
       <div className="min-h-screen bg-background-light dark:bg-background-dark">
-        {/* HERO */}
         <Section
           title=""
           subtitle=""
@@ -134,21 +164,20 @@ const Work: React.FC = () => {
               variants={itemVariants}
               className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-heading dark:text-white"
             >
-              Projects I’ve loved working on
+              Projects I&apos;ve loved working on
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="max-w-xl mx-auto text-neutral-body dark:text-neutral-body-dark mt-4 leading-relaxed text-base"
+              className="max-w-2xl mx-auto text-neutral-body dark:text-neutral-body-dark mt-4 leading-relaxed text-base"
             >
-              A soft little collection of my UI/UX designs and web development
-              projects, shaped with clean layouts, thoughtful details, and
-              practical functionality.
+              A collection of operations systems, UI/UX designs, web
+              applications and technical projects created with thoughtful
+              structure, practical workflows and clean visual presentation.
             </motion.p>
           </motion.div>
         </Section>
 
-        {/* FILTER + PROJECTS */}
         <Section className="bg-background-light dark:bg-background-dark">
           <motion.div
             variants={containerVariants}
@@ -156,7 +185,6 @@ const Work: React.FC = () => {
             animate="visible"
             className="max-w-6xl mx-auto"
           >
-            {/* Search + Filters */}
             <motion.div variants={itemVariants} className="mb-12">
               <div className="relative max-w-xl mx-auto">
                 <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-primary-400 w-5 h-5" />
@@ -165,7 +193,7 @@ const Work: React.FC = () => {
                   type="text"
                   placeholder="Search projects..."
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={(event) => setSearchTerm(event.target.value)}
                   className="w-full pl-12 pr-5 py-4 rounded-full border border-[#DCCEFF] bg-[#FCFAFF] text-neutral-heading placeholder:text-neutral-body/70 shadow-sm outline-none transition-all focus:border-[#BFA7FF] focus:ring-2 focus:ring-[#CBB7FF] dark:border-primary-800 dark:bg-neutral-950 dark:text-white dark:placeholder:text-neutral-body-dark"
                 />
               </div>
@@ -189,6 +217,7 @@ const Work: React.FC = () => {
                           : item.dot
                       }`}
                     />
+
                     {item.label}
                   </button>
                 ))}
@@ -206,7 +235,6 @@ const Work: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Projects */}
             {filteredProjects.length > 0 ? (
               <div className="space-y-14">
                 {projectGroups
@@ -220,7 +248,9 @@ const Work: React.FC = () => {
                       (project) => project.category === group.key
                     );
 
-                    if (groupedProjects.length === 0) return null;
+                    if (groupedProjects.length === 0) {
+                      return null;
+                    }
 
                     return (
                       <motion.div
@@ -266,25 +296,30 @@ const Work: React.FC = () => {
                                 project={project}
                                 variant="default"
                                 onClick={() => {
-                                  const url =
-                                      project.caseStudyUrl || project.liveUrl || project.githubUrl;
+                                  // liveUrl is checked first.
+                                  // Therefore, this project's card opens Google Sheets.
+                                  const cardUrl =
+                                    project.liveUrl ||
+                                    project.githubUrl ||
+                                    project.caseStudyUrl;
 
-                                  if (url) window.open(url, '_blank');
-                                  if (url) window.open(url, '_blank');
+                                  openExternalLink(cardUrl);
                                 }}
                               />
 
-                              {group.key === 'design' && project.showCaseStudyButton && (
+                              {project.showCaseStudyButton && (
                                 <div className="mt-3 px-1">
                                   <button
                                     type="button"
                                     onClick={() => {
-                                      const url =
+                                      // caseStudyUrl is checked first.
+                                      // Therefore, this button opens Notion.
+                                      const caseStudyUrl =
                                         project.caseStudyUrl ||
                                         project.liveUrl ||
                                         project.githubUrl;
 
-                                      if (url) window.open(url, '_blank');
+                                      openExternalLink(caseStudyUrl);
                                     }}
                                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#F3ECFF] border border-[#D8C6FF] text-primary-700 text-sm font-medium shadow-sm hover:bg-[#E9DDFF] hover:shadow-md hover:-translate-y-0.5 transition-all dark:bg-primary-900/40 dark:border-primary-800 dark:text-primary-200"
                                   >

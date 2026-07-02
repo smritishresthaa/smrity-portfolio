@@ -1,24 +1,103 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Trae Project</title>
-    <script type="module">
-      if (import.meta.hot?.on) {
-        import.meta.hot.on('vite:error', (error) => {
-          if (error.err) {
-            console.error(
-              [error.err.message, error.err.frame].filter(Boolean).join('\n'),
-            )
-          }
-        })
-      }
-    </script>
-  </head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <title>Smriti Shrestha | UI/UX Designer & Web Developer</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Smriti Shrestha, a UI/UX designer and web developer creating thoughtful digital experiences, operational systems, and modern web applications."
+  />
+
+  <meta name="author" content="Smriti Shrestha" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Instagram, Facebook, Messenger and LinkedIn -->
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:title"
+    content="Smriti Shrestha | UI/UX Designer & Web Developer"
+  />
+
+  <meta
+    property="og:description"
+    content="Explore my UI/UX design, web development, operations systems, and technical projects."
+  />
+
+  <meta
+    property="og:url"
+    content="https://smrity-portfolio.vercel.app/"
+  />
+
+  <meta
+    property="og:image"
+    content="https://smrity-portfolio.vercel.app/images/projects/pic.jpeg"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="Smriti Shrestha portfolio"
+  />
+
+  <meta
+    property="og:site_name"
+    content="Smriti Shrestha Portfolio"
+  />
+
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta
+    name="twitter:title"
+    content="Smriti Shrestha | UI/UX Designer & Web Developer"
+  />
+
+  <meta
+    name="twitter:description"
+    content="Explore my UI/UX design, web development, operations systems, and technical projects."
+  />
+
+  <meta
+    name="twitter:image"
+    content="https://smrity-portfolio.vercel.app/images/projects/pic.jpeg"
+  />
+
+  <link
+    rel="canonical"
+    href="https://smrity-portfolio.vercel.app/"
+  />
+
+  <meta name="theme-color" content="#8B5CF6" />
+
+  <script type="module">
+    if (import.meta.hot?.on) {
+      import.meta.hot.on('vite:error', (error) => {
+        if (error.err) {
+          console.error(
+            [error.err.message, error.err.frame]
+              .filter(Boolean)
+              .join('\n'),
+          );
+        }
+      });
+    }
+  </script>
+</head>
+
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

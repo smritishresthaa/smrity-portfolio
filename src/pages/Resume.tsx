@@ -14,7 +14,7 @@ import { portfolioData } from '../data/portfolio';
 const Resume: React.FC = () => {
   const { personalInfo } = portfolioData;
 
-  const resumePdfPath = '/images/projects/Resume.pdf';
+  const resumePdfPath = '/images/projects/Smriti_Shrestha_Virtual_Assistant_Resume.pdf';
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,7 +38,7 @@ const Resume: React.FC = () => {
       <SEO
         title="Resume"
         description="View and download Smriti Shrestha's professional resume."
-        keywords="Smriti Shrestha Resume, UI UX Designer Resume, Frontend Developer Resume"
+        keywords="Smriti Shrestha Resume, UI UX Designer Resume, Frontend Developer Resume, Virtual Assistant Resume, Download Resume, View Resume"
       />
 
       <div className="bg-background-light dark:bg-background-dark">
